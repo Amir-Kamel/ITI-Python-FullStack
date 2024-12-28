@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: lightgray;
+    }
+    table {
+      width: 400px;
+      margin-top: 20px;
+      border: 2px solid black;
+      text-align: center;
+    }
+
+    th {
+      background-color: burlywood;
+    }
+    button {
+      width: 70px;
+      height: 50px;
+      background-color: darksalmon;
+      margin: 30px;
+    }
+
+    input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      margin: 30px;
+      padding: 10px;
+    }
+
+    button:hover {
+      background-color: burlywood;
+      box-shadow: 0px 0px 10px black inset;
+    }
+    input[type="text"] {
+      width: 200px;
+      height: 50px;
+      margin: 30px;
+      background-color: darkkhaki;
+      padding: 10px;
+    }
+    input[type="text"]:hover {
+      background-color: lightblue;
+      box-shadow: 0px 0px 10px black inset;
+    }
+
+    input[type="radio"]:hover {
+        background-color: lightblue;
+        box-shadow: 0px 0px 10px black inset;
+    }
+
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      var count = 0;
+
+      $("#addbutt").click(function () {
+        let userinput = $("#userinput").val();
+        let type = $("input[name='news']:checked").val();
+
+        if (isNaN(userinput) && userinput != "" && type != null) {
+          $("tbody").append(
+            `<tr> <td>${++count}</td> <td>${userinput}</td> </tr>`
+          );
+          $("#userinput").val("");
+
+        } else {
+          alert("please enter a valid input and type");
+        }
+
+        if (type === "sport") {
+            $("tr:last").css("backgroundColor", "lightgreen");
+          } else if (type === "social") {
+            $("tr:last").css("backgroundColor", "lightblue");
+          } else if (type === "politic") {
+            $("tr:last").css("backgroundColor", "lightcoral");
+          }
+
+      }); //end addbutton
+
+      $("#searchinput").keyup(function () {
+        let searchinput = $("#searchinput").val().toLowerCase();
+
+        $("tr").each(function () {
+          let tdata = $(this).children("td").text().toLowerCase();
+
+          if (searchinput === "") {
+            $(this).css("backgroundColor", "").show(1000);
+          } else if (tdata.indexOf(searchinput) > -1) {
+            $(this).css("backgroundColor", "green").show(1000);
+          } else {
+            $(this).css("backgroundColor", "red").hide(1000);
+          }
+        }); //endlooptr
+      }); //endsearch
+    }); //endload
+  </script>
+
+  <body>
+    <input type="radio" name="news" value="sport" /> <span>sports</span>
+    <input type="radio" name="news" value="social" /> <span>social</span>
+    <input type="radio" name="news" value="politic" /> <span>politic</span>
+
+    <input type="text" id="searchinput" placeholder="search" />
+
+    <input type="text" id="userinput" placeholder="enter text" />
+
+    <button id="addbutt">add</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Serial</th>
+          <th>Topic</th>
+        </tr>
+      </thead>
+
+      <tbody></tbody>
+    </table>
+  </body>
+</html>

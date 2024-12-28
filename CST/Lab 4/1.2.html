@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        var n=prompt("enter the n of the numbers u will enter");
+        
+        var sum =0;
+
+      for( var i=1 ; i<=n ; i++)  
+        {
+            var x= prompt("please enter the number "+i+" to be sum");
+
+            if(x!=0 && sum<=100 && !isNaN(x) )
+        {
+            sum+= parseInt(x);
+        }
+        else
+        {
+            alert("u have entered a 0 or the sum of ur number exceeds 100 or not a numeric value");
+            break;
+        }
+        }
+        document.write("<h1>the sum of ur numbers is:"+sum);
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

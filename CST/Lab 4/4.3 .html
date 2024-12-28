@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var n = 0;
+    var x=0;
+        var arr=[];
+        var n=prompt("enter the n of the numbers u will enter");
+
+        for(var i=0 ; i<n ; i++)
+    {
+         var x= prompt ("please enter the numbers to store them in the array");
+        if(!isNaN(x))
+    {
+         arr[i]=parseFloat(x);
+        }
+      else{
+        alert("invalid value");
+      }
+    }
+    for(var i=0 ; i<n ; i++)
+    {
+        document.write("<h2>"+arr[i].toPrecision(8)+"</h2><br/>");
+    }
+</script>
+<body>
+    
+</body>
+</html>

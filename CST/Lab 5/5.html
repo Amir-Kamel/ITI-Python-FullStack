@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        table{
+            margin: 0 auto;
+            width: 200px;
+            height: 300px;
+
+        }
+
+        table ,tr,td{
+            border:5px solid yellow;
+            
+        }
+    </style>
+    <script>
+       
+        var arr=[[1,2,3],[3,5,6]];
+        
+        document.write("<table><tr><th>ST1</th><th>ST2</th><th>ST3</th><th>SUM</th</tr>");
+
+            for(var i=0; i<arr.length; i++){
+                document.write("<tr>");
+                    var sum=0;
+                for(var j=0; j<3; j++){
+
+                    document.write("<td>"+arr[i][j]+"</td>");
+                    sum+=arr[i][j];
+                
+                }
+                document.write("<td>"+sum+"</td>");
+               document.write("</tr>");
+              
+               
+            }
+            document.write("</table>");
+       
+    </script>
+</head>
+<body>
+
+    
+</body>
+</html>

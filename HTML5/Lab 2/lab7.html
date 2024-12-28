@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>document</title>
+  <style>
+      *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+  </style>
+</head>
+<body>
+  <canvas></canvas>
+  <script>
+    const canvas = document.querySelector('canvas');
+    const click = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let hold = false; 
+
+    canvas.addEventListener('mousedown', function() {
+      hold = true;
+    });
+
+    canvas.addEventListener('mouseup', function() {
+      hold = false;
+    });
+
+    canvas.addEventListener('mousemove', function(event) {
+      if (hold) {
+        const size = 20; 
+        const x = event.clientX;
+        const y = event.clientY;
+
+        click.fillStyle = 'red';
+        click.fillRect(x - size / 2, y - size / 2, size, size);
+      }
+    });
+
+  </script>
+</body>
+</html>

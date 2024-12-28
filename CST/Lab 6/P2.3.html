@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    div{
+        /* border:1px solid black; */
+        margin:10px auto;
+        padding:10px;
+        text-align:center;
+    }
+    #mainwrapper>h1{
+        border:solid 5px yellow
+    }
+    #mainwrapper{
+        width:1000px;
+    }
+    #imagewrapper{
+        border: solid 5px yellow;
+    }
+    #mainwrapper>div{
+        width:600px;
+        margin-bottom:20px; 
+    }
+    #prev, #next{
+        background-color: yellow;
+        margin:0px 10px;
+
+    }
+    #play{
+        background-color: green;
+        margin:0px 10px;
+
+    }
+    #stop{
+        background-color: red;
+        margin:0px 10px;
+
+    }
+img{
+width:500px;
+height:500px;
+}
+input{
+width:100px;
+padding: 10px;
+border-radius: 10px;
+outline:none;
+}
+input:focus{
+background-color:lightpink;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+<div id="mainwrapper">
+    <h1>Slide Show Game</h1>
+    <div id="imagewrapper">
+        <img src="./UP/1.jpg" id="myimg"/>
+    </div>
+    <div id="controlswrapper">
+        <input id="prev" type="button"  value="<" onclick="prevfun();" />
+        <input id="play" type="button" value="PLay" onclick="startshow();"/>
+        <input id="stop" type="button" value="Stop" onclick="stopshow();"/>
+        <input id="next" type="button" value=">"  onclick="nextfun();"/>
+
+    </div>
+</div>
+<script>
+    var imgarr=["./UP/1.jpg","./UP/2.jpg","./UP/3.jpg","./UP/4.jpg","./UP/5.jpg"];
+    var i=0;
+    var z=1;
+    function startshow(){
+        if(z==1)
+    {
+        t=setInterval("nextfun()",500);
+        z=0;
+    }
+    }
+    function prevfun(){
+        i--;
+        if(i<0) i=imgarr.length-1;
+       myimg.src= imgarr[i];
+    }
+    function nextfun(){
+        i++;
+        if(i>=imgarr.length) i=0;
+       myimg.src= imgarr[i];
+    }
+    function stopshow(){
+        if(z==0){
+        clearInterval(t);
+        z=1;
+        }
+    }
+</script>
+
+    
+</body>
+</html>

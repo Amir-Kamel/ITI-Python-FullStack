@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        var t=setInterval(typing,50);
+        
+          var str = "welcome to child page here char will be dipslayed one by one";
+            var i=0;
+        
+          function typing(){
+               document.write(str[i]);
+                i++;
+            if(i==str.length){
+          clearInterval(t);
+               close();
+            }
+        }
+       
+        
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

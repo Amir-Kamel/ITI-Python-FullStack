@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        h1 {
+            width: 300px;
+            font-size: 500px;
+            margin: 100px auto;
+            text-align: center;
+            color: black;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    
+    <script>
+        const targetcolors = ["red", "green", "blue", "yellow", "gray", "aqua"];
+        let current = 0;
+
+        $(document).ready(function () {
+            $("input:eq(0)").click(function () {
+
+                let nextcolor = targetcolors[current];
+
+                $("h1:eq(0)").animate({ color: nextcolor }, 1500);
+
+                current = (current + 1) % targetcolors.length;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="button" value="next color">
+    <h1>&hearts;</h1>
+
+</body>
+</html>

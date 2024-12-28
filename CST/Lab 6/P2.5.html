@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html{
+            height: 100%;
+            width:100%;
+        }
+        .photo{
+            margin: 0 auto;
+         
+            width:250px;
+        }   
+        .input{
+            margin: 0 auto;
+            height: 50px;
+            width:250px;
+        }
+        .output{
+            margin: 0 auto;
+          height: 50px;
+            width:250px;
+        }
+        p{
+            text-align: center;
+        }
+        #content{
+            border:2px solid black ;
+            height: 50px;
+            width: 250px;
+        }
+        #out{
+            background-color: aqua;
+        }
+        #in{
+            background-color: green;
+        }
+
+
+    </style>
+  
+</head>
+<body>
+    <div class="photo">
+    <img src="./UP/1.jpg">
+</div>
+
+    <p>write the function that takes name and return two random names of them</p>
+    <p>array</p>
+
+    <div class="input">
+    <input type="button" id="in" value="input" onclick="store();"/>
+    <input type="text" id="userinput" />
+    </div>
+
+    <div class="output">
+        <p>array</p>
+    <input type="button" id="out" value="output" onclick="choose()"/>
+    <p id="content"></p>
+     </div>
+
+     <script>
+        var str;
+        var x;
+        var y;
+        var names=[];
+        function store(){
+            str = document.getElementById("userinput").value;
+            names = str.split(",").map(function(val){ return val.trim();});;
+            document.getElementById("content").innerText="names have been saved in the array";
+        }
+
+        function ran(){
+            return Math.floor(Math.random()*(names.length));
+        }
+        
+        function choose() {
+            do{
+
+          var x=ran();
+         var y=ran();
+
+        }while(x==y)
+
+        document.getElementById("content").innerText="["+names[x]+","+names[y]+"]"
+            }
+
+
+
+    </script>
+</body>
+</html>

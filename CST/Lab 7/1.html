@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: lightgray;
+        }
+        #fr>td{
+                background-color:beige;
+        }
+        #fr>td>p{
+            color: black;
+        }
+        table{
+            width:400px;
+            margin-top:20px ;
+            border: 2px solid black;
+            text-align: center;
+        }
+        tr{
+            background-color:burlywood;
+        }
+    </style>
+
+ 
+</head>
+<body>
+    <span>News Type:</span>
+    <input type="radio" name="news" value="sport" > <span>sports</span>
+    <input type="radio" name="news" value="social" > <span>social</span>
+    <input type="radio" name="news" value="politic" > <span>politic</span>
+        <br/>  <br/>
+    <input type="text" name="add" placeholder="add here">
+    <input type="button" value="Add" onclick="addelement();">
+    <br/>  <br/>
+    <input type="text" id="searchBar" placeholder="Search by type" onkeyup="filterNews();">
+
+   
+
+<table id="newitems">
+   <tr id="fr">
+           <td> <p>type</p></td>
+           <td> <p> new</p></td>
+       </tr>
+
+    </table>
+
+
+    <script>
+        var count=0;
+        function addelement()
+                {
+                    var userinput= document.querySelector("input[type=text]").value.trim();
+                    var newstypes= document.getElementsByName("news");
+                   var selectedType = null;
+
+                    for (var i = 0; i < newstypes.length; i++) {
+                        if (newstypes[i].checked) {
+                            selectedType = newstypes[i].value;
+                            break;
+                        }
+                    }
+        
+                    if (userinput==="" || !selectedType)
+                {
+                    alert("no input in data or newsdata");
+                    return;
+                }
+                var newitem=document.getElementById("newitems");
+                var newrows=newitem.insertRow();
+                var colum1=newrows.insertCell(0);
+                var colum2=newrows.insertCell(1);
+        
+        
+                colum1.innerText=selectedType ;
+                colum2.innerText=userinput;
+        
+                document.querySelector("input[type=text]").value=""; 
+               for (var i = 0; i < newstypes.length; i++) {
+                newstypes[i].checked = false;
+                count+=1;
+            }
+        
+            }
+
+           function filterNews(){
+
+            var data=document.getElementById("searchBar").value.trim();
+            var tabl = document.getElementById("newitems");
+            var ros = tabl.getElementsByTagName("tr");
+
+            for(i=0 ; i<ros.length ; i++){
+
+               var colum1 =ros[i].cells[0].innerText;
+
+                if (colum1.indexOf(data) > -1) {
+                    ros[i].style.display = "";;
+                } 
+                else {
+                    ros[i].style.display = "none";
+                }
+
+            }
+
+           }
+
+
+            </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <script>
+        var x=0;
+        var arr=[];
+        for(var i=0 ; i<3 ; i++)
+    {
+         var x= prompt ("please enter the numbers to make mathematical operators on them");
+        if(!isNaN(x))
+    {
+         arr[i]=parseInt(x);
+        }
+      else{
+        alert("invalid value");
+      }
+    }
+    document.write("<h1>the sum of the values:</h1>"+(arr[0]+arr[1]+arr[2]));
+        document.write("<h1>the multiply of the values:</h1>"+(arr[0]*arr[1]*arr[2]));
+        document.write("<h1>the divide of the values:</h1>"+(arr[0]/arr[1]/arr[2]));
+    </script>
+<body>
+    
+</body>
+</html>

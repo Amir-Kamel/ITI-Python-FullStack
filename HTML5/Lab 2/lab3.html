@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+            transition: all 2s ease-in-out;
+        }
+        #container{
+            margin: 30px auto;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 700px;
+            padding: 10px;
+            align-items: center;
+            border:2px solid black;
+            box-shadow: 0px 0px 100px orange inset;
+            border-radius: 20px;
+        }
+        
+        #up, #down{
+            display: flex;
+            width:600px;
+            border:2px solid black;
+            justify-content: center;
+            margin:10px 30px;
+            border-radius: 20px;
+        }
+
+        #down{
+            height: 500px;
+            display: flex;
+            justify-content: center;
+        }
+        input[type="button"]{
+            background-color: blue;
+            width: 100px;
+            height: 50px;
+            padding: 5px;
+            margin: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 25px beige inset;
+            color:white;
+        }
+
+        input[type="button"]:hover{
+            transform: skew(20deg);
+        }
+
+        #info {
+            margin:auto 0;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid cyan;
+            border-radius: 20px;
+
+            box-shadow: 0px 0px 20px gray, 0px 0px 100px lightseagreen inset;
+            font-size: 18px;
+            width: 80%;
+        }
+
+        .info-row {
+            margin: 10px 0;
+        }
+        .info-row span {
+            font-weight: bold;
+        }
+
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"></script>
+    <script>
+         window.addEventListener('load', function () {
+
+            down = document.getElementById('down');
+});
+
+function getlocationfun(){
+
+            if(navigator.geolocation){
+
+                 navigator.geolocation.getCurrentPosition(getposition);
+            }else{
+
+                down.innerText="Sorry , Update Your Browser And Try Again !!!!";
+            }
+        }
+        function getposition(position){
+
+           const lat = position.coords.latitude;
+           const lon = position.coords.longitude;
+
+            
+            const location = new google.maps.LatLng(lat, lon);
+
+            const specs = { zoom: 17, center: location };
+
+            new google.maps.Map(down, specs);
+
+        }
+
+
+        function getdetalied() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showDetails);
+            } else {
+                down.innerText = "Sorry, Update Your Browser And Try Again!";
+            }
+        }
+
+        function showDetails(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const accuracy = position.coords.accuracy;
+            const timestamp = new Date(position.timestamp);
+
+            const infoDiv = document.createElement('div');
+            infoDiv.id = "info";
+
+            infoDiv.innerHTML = `
+                <div><span>Latitude: </span> ${lat}</div>
+                <div><span>Longitude: </span> ${lon}</div>
+                <div><span>Accuracy: </span> ${accuracy}</div>
+                <div><span>Timestamp: </span> ${timestamp}</div>
+            `;
+
+            down.innerHTML = "";
+            down.appendChild(infoDiv);
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <section id="up">
+
+            <input type="button" value="displayed" onclick="getlocationfun();">
+            <input type="button" value="detailed" onclick="getdetalied()">
+
+        </section>
+
+    <section id="down">
+
+    </section>
+
+</div>
+</body>
+</html>

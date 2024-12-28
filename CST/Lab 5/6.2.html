@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+            var arr=[];
+            var e;
+            do
+            {
+                var n = prompt("please enter the amount of the number ONLY NUMBERS");
+            }while(isNaN(n))
+          
+            do{
+                e=0;
+                for(var i=0 ; i<n ; i++)
+                {
+                    var x = prompt("please fill the array "+(i+1));
+
+                    if(!isNaN(x)){
+
+                     arr[i]=parseInt(x);
+                }
+                else{
+
+                    alert("please enter a only valid numbers");
+                    e=1;
+                    break;
+                }
+                }
+            }while(e)
+                    var array=[];
+                    var array=arr.slice();
+                var ch =prompt("please enter from a to h as shown in menu");
+                ch.trim();
+               while(ch) {
+                    
+                    switch(ch){
+                        case 'a':
+                        console.log(arr.map(function(val){return val;}));
+                        break;
+                        case 'b':
+                        console.log(arr.sort(function(x,y){return x-y;}));
+                        break;
+                        case 'c':
+                        console.log(arr.sort(function(x,y){return y-x;}));
+                        break;
+                        case 'd':
+                        console.log(arr.reverse());
+                        break;
+                        case 'e':
+                        var arr2= arr.filter(function(val){ return val%2===0;});
+                        console.log(arr2.map(function(val) {return val;}));
+                        if(arr2.length==0){alert("there is no even num to be displayed");}
+                        break;
+                        case 'f':
+                        var y = prompt("please enter the number to be dvisible by the nums of arrs");
+                        var arr3= arr.filter(function(val){ return val%parseInt(y)===0;});
+                        console.log(arr3.map(function(val) {return val;}));
+                        if(arr3.length==0){alert("there is no num to be divisible by the nums of arrs");}
+                        break;
+                        case 'g':
+                        console.log(arr.map(function(val) {return val*0.7;}));
+                        break;
+                        case 'h':
+                        console.log(arr.join("***"));
+                        break;
+                        default:
+                            alert("u entered wrong input")
+                    }   
+                    arr=array.slice();
+                    var ch =prompt("do u want again to play choose from a to h as shown in menu");
+                } 
+                
+
+
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

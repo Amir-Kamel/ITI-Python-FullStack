@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+
+
+let str=prompt("please enter the numbers inside the arr");
+
+let arr=str.split(",");
+for(let i=0 ; i<arr.length ; i++){
+    arr[i]=arr[i].trim();
+}
+
+
+let sign=prompt("please enter the sign");
+
+
+let getres = (sign,...arr) => eval(arr.join(sign));
+
+let res=getres(sign,...arr);
+
+if(arr!=""  && res!=Infinity && (sign=="+" || sign=="-" ||sign=="*" || sign=="/"))
+{
+console.log(res);
+}
+else{
+    alert("u have entered invalid value");
+}
+</script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>sign in</title>
+    <style>
+      .container{
+        position: relative;
+      }
+    
+
+
+      .face{
+        width: 150px;
+        position: absolute;
+        background-color: blue;
+        text-align: right;
+        top: 30px;
+
+        
+      }
+      .twitter{
+        width: 200px;
+        height: 20px;
+        position: absolute;
+        background-color: aqua;
+        left: 160px;
+        text-align: center;
+        top: 30px;
+      }
+
+      .face>img, .twitter>img{
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        position: absolute;
+        left: 0px;
+      }
+ 
+      input[type="button"], input[type="submit"]{
+        background: none;
+        border: 0px;
+      }
+
+     
+
+      .second{
+        position: absolute;
+        top: 60px;
+        left: 150px;
+      }
+
+    
+      h3{
+        border-radius: 10px;
+        background-color: gray;
+       
+      }
+
+      .third{
+        position: absolute;
+        top:120px;
+      }
+
+      .third input[type="text"], .third input[type="password"]{
+        text-align: center;
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 2px;
+        width: 350px;
+      }
+
+
+    .third input[type="checkbox"] , .third p{
+        display: inline-block;
+    }
+
+    .third a{
+        left:100px;
+    }
+
+      input[type="submit"]:hover{
+        cursor: pointer;
+        background-color: purple;
+      }
+
+      input[type="button"]:hover{
+        cursor: pointer;
+      }
+
+      .fourth{
+
+        text-align: center;
+        top: 250px;
+        position: absolute;
+
+      }
+      .fourth input[type="submit"]{
+        width: 360px;
+        height: 20px;
+       
+        background-color: aqua;
+        left:0px;
+      }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+         <form method="get" action="#">
+             <div class="face">
+                <img src="pic.png">
+                <input type="button" value="Login to Facebook">
+            </div>
+            <div class="twitter">
+                <img src="pic.png">
+                <input type="button" value="Login to Twitter">
+            </div>
+            <div class="second"> <h3>Or</h3> </div>
+             
+             <div class="third">
+                 <input type="text" placeholder="Username" name="name">
+                 <input type="password" placeholder="Password" name="pass">
+                 <input type="checkbox" name="keep sign" ><p >Keep me signed in
+                  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="#">Forgot UR Password</a>
+                 </p>
+                 
+             </div>
+             <div class="fourth">
+                <input type="submit" value="Login" name="log">
+                <p>Not a member? <a href="#">Sign up now!</a></p>
+           </div>
+         </form>     
+    </div>
+
+
+</body>

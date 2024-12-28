@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+         var number= prompt("please enter the number");
+         var int= prompt("Also enter the intinal radix");
+         number.trim();
+         
+         arr=number.split("");
+         
+         var arr2=arr.filter(function(val){return val!=" "});
+
+        number=arr2.join(",");
+        if(number>=int)
+    {
+        alert("u cant enter the number more than or equal intinal or target radix");
+    }
+    else
+    {
+        if(arr2.every(function(val) {return parseInt(val,int);}))
+    {
+        var target= prompt("Also enter the target radix");
+
+        document.write("<h1>output :" +parseInt(number,int).toString(8)+"</h1>");
+
+    }
+             else
+          {
+            aler("the number is not true")
+       
+          }
+
+
+    }
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

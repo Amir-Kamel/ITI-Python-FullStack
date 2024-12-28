@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Styles Display</title>
+    <style>
+
+        div {
+            width: 100px;
+            height: 100px;
+             background-color: blue; 
+             margin:30px;
+            }
+  
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("input:eq(0)").click(function () {
+                    animation = setInterval(() => {
+                        $("div")
+                            .animate({ width: "200px", height: "150px" }, 500)
+                            .animate({ width: "150px", height: "100px" }, 500)
+                            .animate({ width: "100px", height: "100px" }, 500);
+                    }, 100); 
+            });
+
+            $("input:eq(1)").click(function () {
+                clearInterval(animation);
+                $("div").stop(true);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="start" />
+    <input type="button" value="stop" />
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #msg{
+            display: none;
+        }
+
+    #textname, #country, #email, #zipcode ,#register{
+        margin-bottom: 30px;
+    }
+    #register{
+        margin-top: 20px;
+    }
+    .success{
+            border:5px solid green !important;
+        }
+        .error{
+            border:5px solid red !important;
+            
+        }
+
+    
+    </style>
+
+<script>
+     window.addEventListener('load',function(){
+
+            usertext=document.getElementById('textname');
+            usertext.focus();
+            usertext.addEventListener('blur',function(e){
+        
+                if(!isUserNameValid()){
+                    this.className="error";
+                    this.focus();
+                    this.select();
+                }else{
+                    this.className="success";
+                }
+            });
+
+
+
+            usercountry=document.getElementById('country');
+            userzipcode=document.getElementById('zipcode');
+
+            usercountry.addEventListener("change", function() {
+                var selected = usercountry.options[usercountry.selectedIndex];
+                if (selected.value) {
+                    userzipcode.value = selected.value;
+                } else {
+                    userzipcode.value = "";
+                }
+            });
+
+
+            useremail=document.getElementById('email');
+            useremail.focus();
+            useremail.addEventListener('blur',function(e){
+        if(!isemailValid()){
+            this.className="error";
+            this.focus();
+            this.select();
+        }else{
+            this.className="success";
+        }
+    });
+
+    document.forms[0].addEventListener('submit',function(e){
+        errormsg=document.getElementById("msg");
+        var selectedHobbies = document.querySelectorAll('input[name="hobbies"]:checked');
+              if (selectedHobbies.length === 0) {
+                    e.preventDefault();
+                   // alert("u have to select any hobby");
+                    errormsg.style.cssText="display: block; color:red; font-weight:bold;"
+                }
+            });
+
+
+        });// load ended
+
+
+        function clearform(){
+            var msg = confirm("Are you sure you want to clear the form?");
+                if (msg) {
+                    document.getElementById("formvalid").reset();
+
+        }
+    }
+
+        function isUserNameValid(){
+            return /^[a-zA-Z]{1,10}$/.test(usertext.value);
+        }
+
+        function isemailValid(){
+            return   /^[a-zA-Z0-9._%+-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/.test(useremail.value);
+        }
+       
+
+
+</script>
+
+</head>
+
+<body>
+
+    <form id="formvalid" action="./2.submitvisit.html" method="get" target="_blank">
+            <span>Name:  </span><input type="text" placeholder="write ur name here" id="textname"/><br/>
+            <span>country:  </span><select id="country">
+                <option value="">-</option>
+                <option value="111">Egypt</option>
+                <option value="222">USA</option>
+                <option value="333">UK</option>
+            </select><br/>
+
+            <span>Zip Code:  </span><input type="text" id="zipcode" readonly/><br/>
+
+            <span>Email:  </span><input type="text" placeholder="write ur email here" id="email"/><br/>
+
+            <span>Hobbies:  </span><input type="radio" name="hobbies" value="writing"><span>writing</span>
+            <input type="radio" name="hobbies" value="reading"/><span>reading</span>
+            <input type="radio" name="hobbies" value="swimming"/><span>swimming</span>
+            <input type="radio" name="hobbies" value="sleeping"/><span>sleeping</span><br/>
+            <p id="msg">u have to selcet any hobby first</p>
+
+
+            <input type="submit" value="Register" id="register"/><br/>
+            
+            <input type="button" value="Cancel" id="cancel" onclick="clearform()"/><br/>
+            
+
+
+    </form>
+
+
+</body>
+</html>

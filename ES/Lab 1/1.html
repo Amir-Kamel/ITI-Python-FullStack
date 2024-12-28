@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+
+let str=prompt("please enter the numbers inside the arr");
+
+let arr=str.split(",");
+for(let i=0 ; i<arr.length ; i++){
+    arr[i]=arr[i].trim();
+}
+
+    let[...arr2]=arr;
+    console.log(arr.sort((a,b)=>a-b));
+ 
+    console.log(arr.sort((a,b)=>b-a));
+    
+    console.log(arr2.filter((val)=>val>50));
+
+    console.log(Math.min(...arr2));
+
+    console.log(Math.max(...arr2));
+
+    
+
+</script>
+<body>
+    
+</body>
+</html>

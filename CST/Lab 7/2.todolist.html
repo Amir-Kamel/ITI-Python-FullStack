@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            text-align: center;
+        }
+        #newitems{
+            color: brown;
+            background-color: antiquewhite;
+        }
+        table{
+            width:700px;
+        }
+        #fr>td{
+                background-color: red;
+        }
+        #fr>td>p{
+            color: white;
+        }
+    </style>
+    <script>
+        
+        function addelement()
+        {
+            var userinput= document.querySelector("input[type=text]").value;
+
+            if (userinput.trim()==="")
+        {
+            alert("no input");
+            return;
+        }
+        var newitem=document.getElementById("newitems");
+        var newrows=newitem.insertRow();
+        var colum1=newrows.insertCell(0);
+        var colum2=newrows.insertCell(1);
+        var colum3=newrows.insertCell(2);
+        colum2.innerText=userinput;
+  
+        var cb = document.createElement("input"); 
+        cb.type="checkbox";
+        colum1.appendChild(cb);
+        cb.addEventListener('change',function(){
+            if (cb.checked)
+        {
+            colum2.style.textDecoration='line-through';
+        }
+        else
+        {
+            colum2.style.textDecoration='none';
+        }
+        })
+
+         var db=document.createElement("button");
+         db.innerHTML="🗑";
+         db.style.color = "red";
+         colum3.appendChild(db);
+         db.addEventListener('click',function(){
+                var rc = confirm("ru sure u want to delete this row !");
+                if (rc)
+            {
+                newrows.removeChild(colum1);
+                newrows.removeChild(colum2);
+                newrows.removeChild(colum3);
+            }
+
+
+        }); 
+
+
+         var userinput= document.querySelector("input[type=text]").value=""; 
+        }
+
+    </script>
+</head>
+<body>
+    <h1>To DO Organizer </h1>
+         <td ><input type="text" name="add" ></td>
+         <td><input type="button" value="Add" onclick="addelement();"></td>
+
+    <table id="newitems">
+        <tr id="fr">
+                <td> <p>Done</p></td>
+                <td> <p> Task</p></td>
+                <td> <p> Delete</p></td>
+            </tr>
+       
+    </table>
+</body>
+</html>

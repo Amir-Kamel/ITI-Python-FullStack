@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      input {
+        width: 200px;
+        height: 30px;
+        margin: 10px;
+        background-color: navajowhite;
+        padding: 10px;
+      }
+
+      div {
+        border: 2px solid black;
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        margin-top: 20px;
+      }
+
+      table {
+        width: 80%;
+        margin: 50px auto;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+      }
+
+      tr th {
+        background-color: yellow;
+      }
+
+      tr:nth-child(even) {
+        background-color: lightgray;
+      }
+
+      tr:nth-child(odd) {
+        background-color: lightblue;
+      }
+
+      input:hover {
+        background-color: lightblue;
+        box-shadow: 0px 0px 10px black inset;
+      }
+    </style>
+
+    <script>
+      $(document).ready(function () {
+        $("#fnamesearch, #lnamesearch, #fullnamesearch").keyup(function () {
+          let inputfname = $("#fnamesearch").val().toLowerCase();
+          let inputlname = $("#lnamesearch").val().toLowerCase();
+          let inputfullname = $("#fullnamesearch").val().toLowerCase();
+
+          $("tr").each(function () {
+            let fname = $(this).children("td:eq(0)").text().toLowerCase();
+            let lname = $(this).children("td:eq(1)").text().toLowerCase();
+            let fullname = fname + " " + lname;
+
+            if (
+              inputfname === "" &&
+              inputlname === "" &&
+              inputfullname === ""
+            ) {
+              $(this).css("backgroundColor", "").show(1000);
+            } else if (
+              fname.indexOf(inputfname) > -1 &&
+              lname.indexOf(inputlname) > -1 &&
+              fullname.indexOf(inputfullname) > -1
+            ) {
+              $(this).css("backgroundColor", "green").show(1000);
+            } else {
+              $(this).css("backgroundColor", "red").hide(1000);
+            }
+          });
+        }); //endfun
+      }); //endload
+    </script>
+  </head>
+  <body>
+    <input type="text" id="fnamesearch" placeholder="search by firstname" />
+    <input type="text" id="lnamesearch" placeholder="search by lastname" />
+    <input type="text" id="fullnamesearch" placeholder="search by fullname" />
+
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>amir</td>
+          <td>kamel</td>
+        </tr>
+        <tr>
+          <td>mustafa</td>
+          <td>7asan</td>
+        </tr>
+        <tr>
+          <td>ahmed</td>
+          <td>mohamed</td>
+        </tr>
+        <tr>
+          <td>belal</td>
+          <td>nagy</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

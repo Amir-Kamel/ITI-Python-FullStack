@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+          padding:0;
+          margin:0;
+          box-sizing:border-box;
+          transition:all 4s ease-in-out;
+      }
+  
+      img{
+          width: 110px;
+          height: 110px;
+          margin: 20px;
+          border: 3px solid blue;
+         
+      }
+  
+      #mainwrapper{
+          height:90vh;
+          width:80vw;
+          border: 5px solid yellow;
+          box-shadow: 15px 15px 7px rgb(255, 142, 161) , 0px 0px 100px green inset;
+          padding: 10px;
+          border-radius: 20px;
+          margin: 30px auto;
+          display: flex;
+          justify-content: space-between;
+      }
+
+      #left{
+          border-radius: 20px;
+          border: 5px solid black;
+          height: 100%;
+          width: 35%;
+          margin-right: 15px;
+          column-count: 3;
+          column-gap:10px;
+          column-rule:3px solid red;
+          overflow: auto;
+          text-align: center;
+          box-shadow: 0px 0px 100px darkgreen inset;
+      }
+      
+      #right{
+          border-radius: 20px;
+          border: 5px solid blue;
+          height: 100%;
+          width: 70%;
+          margin-left: 15px;
+          padding: 0 30px 30px 30px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          overflow: auto;
+          gap: 10px;
+      }
+
+      mark{
+          background-color: red;
+      }
+      
+      #mainwrapper:hover{
+         transform: skew(15deg);
+         box-shadow:  15px 15px 7px darkcyan, 0px 0px 100px green inset; 
+      }
+  
+      img:hover{
+          transform:scale(1.3);
+      }
+  
+      #left:hover{
+          text-decoration: underline;
+      }
+
+      mark:hover{
+          background-color: orange;
+      }
+  
+      #mainwrapper:active{
+          transform: skew(-5deg);
+          transform: scale(0.6);
+          box-shadow:  15px 15px 7px orange, 0px 0px 100px green inset;
+      }
+
+      img:active{
+        border: 0px;
+        transform:scale(3);
+      }
+
+      mark:active{
+        background-color: cornflowerblue;
+        font-size: 20px;
+      }
+
+      @media (orientation: portrait) {
+
+        #mainwrapper:hover{
+          transform: skew(0deg);
+          transform: scale(1);
+          box-shadow:  15px 15px 7px orange, 0px 0px 100px green inset;
+      }
+
+        #right{
+        column-count: 3;
+        gap: 10px;
+        text-align: center;
+    }
+
+    img{
+        transform:skew(20deg);
+    }
+
+    mark{
+          background-color: blue;
+      }
+
+      #left{
+        column-gap:3px;
+          column-rule:0px;
+      }
+
+      img:hover{
+        transform:skew(0deg);
+          transform:scale(1.3);
+      }
+
+    img:active{
+        border: 5px dashed blue;
+        box-shadow:  10px 10px 7px red;
+      }
+
+      }
+  
+  </style>
+
+
+
+</head>
+
+<body>
+
+    <section id="mainwrapper">
+
+        <section id="left">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Magni saepe eum voluptas reiciendis recusandae 
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Magni saepe eum voluptas reiciendis recusandae 
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?
+            Lorem ipsum <mark>dolor sit amet consectetur adipisicing elit. 
+            Magni saepe eum voluptas reiciendis recusandae 
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Magni saepe eum voluptas reiciendis recusandae 
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?
+            Lorem ipsum dolor sit amet</mark> consectetur adipisicing elit. 
+            Magni saepe eum voluptas reiciendis recusandae 
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Magni saepe eum voluptas reiciendis recusandae 
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?
+            Lorem ipsum dolor sit amet consectetur <mark>adipisicing elit. 
+            Magni saepe eum voluptas reiciendis recusandae 
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Magni saepe eum voluptas reiciendis recusandae
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.</mark>  
+            Magni saepe eum voluptas reiciendis recusandae 
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Magni saepe eum voluptas reiciendis recusandae 
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Magni saepe eum <mark>voluptas reiciendis recusandae 
+            similique ab tempore, vero accusantium, 
+            modi doloribus cum illo sunt, excepturi deleniti eaque quo ullam voluptates?</mark>
+        </section>
+
+        <section id="right">
+            <img src="./img/p3.jpg" > </img>
+            <img src="./img/p4.jpg" > </img>
+            <img src="./img/p5.jpg" > </img>
+            <img src="./img/p6.jpg" > </img>
+            <img src="./img/p3.jpg" > </img>
+            <img src="./img/p4.jpg" > </img>
+            <img src="./img/p5.jpg" > </img>
+            <img src="./img/p6.jpg" > </img>
+            <img src="./img/p3.jpg" > </img>
+            <img src="./img/p4.jpg" > </img>
+            <img src="./img/p5.jpg" > </img>
+            <img src="./img/p6.jpg" > </img>
+            <img src="./img/p3.jpg" > </img>
+            <img src="./img/p4.jpg" > </img>
+            <img src="./img/p5.jpg" > </img>
+            <img src="./img/p6.jpg" > </img>
+            <img src="./img/p3.jpg" > </img>
+            <img src="./img/p4.jpg" > </img>
+            <img src="./img/p5.jpg" > </img>
+            <img src="./img/p6.jpg" > </img>
+            <img src="./img/p3.jpg" > </img>
+            <img src="./img/p4.jpg" > </img>
+            <img src="./img/p5.jpg" > </img>
+            <img src="./img/p6.jpg" > </img>
+            <img src="./img/p3.jpg" > </img>
+            <img src="./img/p4.jpg" > </img>
+            <img src="./img/p5.jpg" > </img>
+            <img src="./img/p6.jpg" > </img>
+        </section>
+
+    </section>
+
+
+</body>
+</html>

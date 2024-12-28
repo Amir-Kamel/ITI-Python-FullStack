@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+            transition: all 2s ease-in-out;
+        }
+        #mainwrapper{
+            width:90vw;
+            border:3px solid black;
+            border-radius: 20px;
+            box-shadow: 0px 0px 100px orange inset;
+            margin:10px auto;
+            padding:10px;
+            display:flex;
+            
+        }
+
+        #controlswrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+        #mainwrapper>section{
+            width:200px;
+            height:500px;
+            margin:10px;
+            border:3px solid black;
+            border-radius: 20px;
+        }
+        #videowrapper{
+            flex-grow:1;
+            display:flex;
+            justify-content: center;
+            align-items:center;
+        }
+
+        video{
+            border-radius: 20px;
+        }
+
+        input[type=button]{
+            width:70px;
+            font-weight:bold;
+            padding:10px;
+            border: 3px solid blue;
+            border-radius:5px;
+        }
+        input[type=button]:focus{
+            background-color:blue;
+        }
+
+        #controlswrapper:hover{
+            background-color: orange;
+        }
+        input[type=button]:hover{
+            transform: rotate(360deg);
+        }
+
+        video:hover{
+            transform: scale(1.3);
+
+        }
+
+    </style>
+    <script>
+window.addEventListener('load', () => {
+    const startbutton = document.querySelectorAll('input[type=button]');
+    const videoshow = document.getElementById('myvideo');
+
+    startbutton.forEach(button => {
+        button.addEventListener('click', () => {
+            const videoSrc = button.getAttribute('data-src');
+            videoshow.setAttribute('src', videoSrc);
+            videoshow.load();
+        });
+    });
+    videoshow.addEventListener("dblclick", ()=>{
+        myvideo.requestFullscreen();
+    })
+    videoshow.addEventListener("click", ()=>{
+        if(myvideo.paused){
+                    myvideo.play();
+                
+                }else{
+                    myvideo.pause();
+                }
+    })
+});
+
+
+    </script>
+</head>
+
+<body>
+    <section id="mainwrapper">
+        <section id="controlswrapper">
+            <input type="button" value="Video1" data-src="./Video/universe.mp4">
+            <input type="button" value="Video2" data-src="./Video/universe.mp4">
+            <input type="button" value="Video3" data-src="./Video/universe.mp4">
+            <input type="button" value="Video4" data-src="./Video/universe.mp4">
+            <input type="button" value="Video5" data-src="./Video/universe.mp4">
+            <input type="button" value="Video6" data-src="./Video/universe.mp4">
+        </section>
+        <section id="videowrapper">
+            <!-- <video src="./Video/universe.mp4"  id="myvideo" width="500" height="500"/>
+             <video src="./Video/universe.mp4" id="myvideo"> -->
+
+                <video id="myvideo" src="">
+                </video>
+        </section>
+    </section>
+</body>
+</html>

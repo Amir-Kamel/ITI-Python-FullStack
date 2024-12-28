@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border:2px ;
+            width: 300px;
+            margin:30px 0px ;
+        }
+        input[type=text]{
+            width:200px;
+            margin-top: 20px;      
+          }
+        input[type=button]{
+            margin-top: 20px; 
+        }
+
+    </style>
+    <script>
+        var i =1;
+        function addelement()
+        {
+
+            var userinput= document.querySelector("input[type=text]").value;
+            if (userinput.trim()==="")  
+        {
+            alert("no input");
+            return;
+        }
+            var item=document.getElementById("newtable");
+            var newrow=item.insertRow();
+            var colum1=newrow.insertCell(); 
+            var colum2=newrow.insertCell();   
+            colum1.innerText=i;
+            i++;
+            colum2.innerText=userinput;
+            var userinput= document.querySelector("input[type=text]").value=""; 
+
+        }
+        function returncounter(){
+            var tab= document.getElementById("newtable");
+            alert("Number of rows: " + tab.rows.length); 
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="add">
+   <input type="button" value="Add" onclick="addelement();">
+    <table id="newtable">
+        <tr>
+            <td>NO.1</td>
+            <td>News</td>
+        
+        </tr>
+     
+    
+    </table>
+    <button onclick="returncounter()">Count Rows</button>
+
+
+</body>
+</html>

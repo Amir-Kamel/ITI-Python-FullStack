@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Text Style</title>
+    <style>
+        pre {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        tr,td,th{
+            border:1px solid black;
+            padding:5px;
+        }
+    </style>
+    
+        <script>
+            window.addEventListener('load',function(){
+              
+              var text = document.getElementById('sampletext');  
+              var table=document.getElementById("styletable");
+            
+            table.addEventListener('click', function (e) {
+          
+
+          if (e.target.type === "radio") {
+              
+
+              var st = e.target.value.split(":");
+              text.style[st[0]] = st[1];
+          }
+      });
+  });
+  </script>
+</head>
+<body>
+
+
+    <pre id="sampletext">This is the sample text and u just can 
+
+try any style u want just by pressing the
+
+radio buttons from the table below the text
+    </pre>
+    
+
+    <table id="styletable" >
+        <tr>
+            <th>Font Family</th>
+            <th>Font Size</th>
+            <th>Text Color</th>
+            <th>Border</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="font" value="fontFamily:Arial"> <span>Arial</span><br>
+                <input type="radio" name="font" value="fontFamily:Verdana"> <span>Verdana</span>
+            </td>
+            <td>
+                <input type="radio" name="size" value="fontSize:16px"> <span> 16px </span> <br>
+                <input type="radio" name="size" value="fontSize:20px"> <span>20px</span>
+            </td>
+            <td>
+                <input type="radio" name="color" value="color:blue"> <span>Blue</span><br>
+               <input type="radio" name="color" value="color:red"> <span>Red</span>
+            </td>
+            <td>
+                <input type="radio" name="border" value="border:2px solid green"><span> Green Border</span><br>
+                <input type="radio" name="border" value="border:2px dashed orange"> <span>Orange Dashed</span>
+            </td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

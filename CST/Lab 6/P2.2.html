@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+    </style>
+</head>
+<body class="bg">
+    <script>
+        var t= setInterval(show,1000);
+
+        var arr=["./UP/1.jpg","./UP/2.jpg","./UP/3.jpg","./UP/4.jpg","./UP/5.jpg","./UP/6.jpg","./UP/7.jpg","./UP/8.jpg","./UP/9.jpg","./UP/10.jpg"];
+        var i=0;
+       
+        function show(){
+            document.getElementsByTagName("body")[0].style.backgroundImage="url("+arr[i]+")";
+            i++;
+            if(i>arr.length) 
+            {
+                clearInterval(t);
+              window.close();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom jQuery Functions</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: lightgray;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            border: 1px solid black;
+            margin: 5px;
+        }
+
+        li:nth-child(odd) {
+            background-color: lightgray;
+        }
+
+        li:nth-child(even) {
+            background-color: lightblue;
+        }
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+              $(document).ready(function () {
+
+                $('li').fontstyle('Arial').lettercolor('M', 'red');
+                
+        });
+
+        $.fn.extend({
+            'fontstyle': function(font) {
+                $(this).css('font-family', font);
+
+                return $(this);
+
+            },
+            
+            'lettercolor': function(letter, color) {
+
+                    $(this).each(function() {
+
+                    if ( $(this).text().toUpperCase().includes(letter) || $(this).text().toLowerCase().includes(letter)) {
+
+                        $(this).css('color', color);
+
+                    }
+
+                });
+            }
+        });//end extend func
+
+  
+    </script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>amir</li>
+            <li>mohamed</li>
+            <li>hasan</li>
+            <li>ali</li>
+            <li>adham</li>
+            <li>mostafa</li>
+            <li>hossam</li>
+            <li>khaled</li>
+        </ul>
+    </div>
+
+</body>
+</html>

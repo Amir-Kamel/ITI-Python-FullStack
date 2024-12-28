@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+       var x = prompt("please enter ur name")
+       var arr=[];
+
+       while(!isNaN(x)){
+
+        var x = prompt("please enter ur name AGAIN. u will not get out till u enter vaild name");
+
+       }
+      
+
+       var y = prompt("please enter ur number.");
+
+
+       do {
+        
+      
+    if(y.length==11 && y.charAt(3)=='-' && (y.substr(0,3)=='010'|| y.substr(0,3)=='011' || y.substr(0,3)=='012'|| y.substr(0,3)=='015'))
+    {
+        console.log( x.trim());
+        console.log(y);
+        var z=0;
+
+       }
+       else
+       {
+            alert("please enter valid number according to the rules") 
+            var z=1;
+            var y = prompt("please enter ur number AGAIN.also here u will not get out till u enter vaild number");
+
+         }
+        } while (z);
+
+
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

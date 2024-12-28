@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #mainwrapper{
+            width:100%;
+            background-color:darkblue;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        button {
+            
+            width: 200px;
+            height: 50px;
+            background-color: cyan;
+            border: none;
+            margin: 10px;
+            margin-top: 25px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #showdata {
+            font-size: 18px;
+            margin-top: 20px;
+            background-color: burlywood;
+        }
+        button:hover {
+            background-color: lightcoral;
+            cursor: pointer;
+        }
+
+        #showdata li{
+            padding:20px;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    
+<div id="mainwrapper">
+    
+</div>
+
+<div id="showdata">   
+
+
+</div>
+
+
+<script>
+         (async function datapsots(){
+
+
+            const buttcont=document.getElementById("mainwrapper");
+            const showdata = document.getElementById("showdata"); 
+            
+            let names=await fetch("https://jsonplaceholder.typicode.com/users");
+
+                let namesjs=await names.json();
+
+                    namesjs.forEach(function(val){
+              butt=document.createElement("button");
+              buttcont.appendChild(butt);
+             butt.innerHTML=`${val.name}`;
+            
+             butt.addEventListener("click",function() {
+                showdata.innerHTML = `
+                    <h3>User Details: ${val.name}</h3>
+                    <ul>
+                        <li><strong>Email: ${val.email}</li>
+                        <li><strong>Phone: ${val.phone}</li>
+                        <li><strong>Website: ${val.website}</li>
+                        <li><strong>Address: ${val.address.street}, ${val.address.city}</li>
+                    </ul>
+                `;
+            });
+
+                }) 
+
+        })();
+
+       
+
+</script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+let id;
+let name;
+let dur;
+do{
+    id=prompt("please enter the projectid");
+}while(isNaN(id))
+
+do{
+    name=prompt("please enter the name");
+}while(!isNaN(name))
+name.trim();
+
+dur=prompt("please enter the duration");
+dur.trim();
+
+const anonymouse ={
+projectid:id,
+projectname:name,
+duration:dur
+}
+console.log(anonymouse);
+
+
+
+
+</script>
+<body>
+    
+</body>
+</html>

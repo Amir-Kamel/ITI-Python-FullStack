@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sq1{
+            background-color: red;
+            animation-direction: alternate;
+                border:2px solid black;
+                height: 150px;
+                width:150px;
+                margin: 50px auto;
+        }
+
+        #start{
+            height: 50px;
+            width: 100px;
+            background-color: green;
+            margin: 25px;
+            cursor: pointer;
+            
+        }
+        #stop{
+            height: 50px;
+            width: 100px;
+            background-color: red;
+            margin: 25px;
+            cursor: pointer;
+        }
+        @keyframes divanimation {
+        
+        0%{
+           background-color: red;
+           transform: translate(0px,0px);
+        }
+        25%{
+           background-color: green;
+           transform: translate(500px,0px);
+        }
+        50%{
+           background-color: blue;
+           transform: translate(500px,500px);
+        }
+        75%{
+           background-color: yellow;
+           transform: translate(0px,500px);
+        }
+        100%{
+           background-color: red;
+           ;
+           transform: translate(0px,0px);
+        }
+        } 
+        
+        </style>
+        
+        <script>
+
+
+        function startt() {
+
+            const square = document.getElementById("sq1");
+                square.style.animation = "divanimation 10s infinite";
+
+            }
+
+        function Stopp() {
+
+            const square = document.getElementById("sq1");
+            square.style.animation = "none";
+
+        }
+       </script>
+</head>
+
+<body>
+
+        <section id="sq1"> </section>
+
+        <button id="start" onclick="startt()"> Start </button>
+
+        <button id="stop" onclick="Stopp()"> Stop </button>
+
+</body>
+</html>

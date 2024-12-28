@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Styles Display</title>
+    <style>
+        section{
+            margin: 30px auto;
+            width:70vw;
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+        input{
+            background-color: orange;
+            width:80px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 1s ease-in-out;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+             margin:60px;
+             position: relative;
+            }
+           
+        div:nth-child(2) {
+             background-color: blue; 
+             color:aqua;
+            }
+        div:nth-child(3) {
+             background-color: green; 
+             color:white;
+             left:1200px;
+            }
+        div:nth-child(4) 
+        { 
+            background-color: navy; 
+            color:burlywood;
+        }
+        input:hover{
+         transform: scale(1.2);
+         box-shadow: 0px 0px 10px black inset;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+            $("input:eq(0)").click(function () {
+                        $("div:eq(0)")
+                            .animate({ left: "1200px" }, 1500);
+                    }); 
+            
+
+             $("input:eq(1)").click(function () {
+                        $("div:eq(1)")
+                        .animate({ left: "0px" }, 1500);
+                    });   
+
+            $("input:eq(2)").click(function () {
+                $("div:eq(2)")
+                .animate({ left: "1200px" }, 1500)
+                .animate({ top: "150px" }, 1500)
+                .animate({ left: "0px" }, 1500)
+                .animate({ top: "0px" }, 1500);
+
+            });                      
+               
+        });
+            
+            
+
+    </script>
+</head>
+<body>
+    <section>
+    <input type="button" value="right" />
+    <input type="button" value="left" />
+    <input type="button" value="around" />
+</section>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

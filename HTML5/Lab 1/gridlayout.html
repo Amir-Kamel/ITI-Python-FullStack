@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    *{
+        padding:0;
+        margin:0;
+        box-sizing:border-box;
+    }
+
+    #head>a{
+        text-decoration: none;
+        text-decoration:none;
+        font-weight:bold;
+        font-size: larger;
+        margin:0px 20px 0px 20px;
+    }
+    #view>img{
+        width:293px;
+        height:205px;
+
+    }
+
+    #mainwrapper{
+        height: 100vh;
+        display: grid;
+        grid-template-columns:0.3fr 1fr;
+        grid-template-rows: 0.2fr 1fr;
+        grid-template-areas: "side head"
+                             "side view";
+    }
+
+    #head{
+        grid-area: head;
+        background-color: bisque;
+        display: flex;
+        align-items: center;
+    }
+
+   #view{
+        grid-area:view ;
+        display: grid;
+        gap:0px;
+        grid-template-columns:1fr 1fr 1fr 1fr;
+
+    }
+    #side{
+        grid-area:side;
+        background-color:cadetblue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #head>a:hover{
+        background-color: rgb(193, 193, 251);
+    }
+    #side>p{
+        font-size: 100px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+    #side>a{
+        text-decoration: none;
+        text-decoration:none;
+        font-size: large;
+        color: bisque;
+        margin-bottom: 20px;
+    }
+    #side>a:hover{
+        color: brown;
+    }
+    #sideimg{
+        display: flex;
+    }
+
+    .sideimg2>img{
+
+        height:50px;
+        width:50px;
+    }
+    #view>img:hover{
+        transition: all 1s ease-in-out;
+        transform: scale(1.2);
+    }
+</style>
+<body>
+    <div id="mainwrapper">
+        
+        <section id="head">
+            <a href="#">All</a>
+            <a href="#">Illustration</a>
+            <a href="#">Motion</a>
+            <a href="#">Photograph</a>
+            <a href="#">print</a>
+        </section>
+
+
+        <section id="view">
+            <img src="./img/1.jpg" >
+            <img src="./img/2.jpg" >
+            <img src="./img/3.jpg" >
+            <img src="./img/4.jpg" >
+            <img src="./img/5.jpg" >
+            <img src="./img/p3.jpg" >
+            <img src="./img/p4.jpg" >
+            <img src="./img/laptop_top.jpg" >
+            <img src="./img/p5.jpg" >
+            <img src="./img/p6.jpg" >
+            <img src="./img/pexels-christina-morillo-1181210.jpg" >
+            <img src="./img/5.jpg" >
+        </section>
+
+        <section id="side">
+            <p>INK</p>
+            <a href="#">Portfoilo</a>
+            <a href="#">About US</a>
+            <a href="#">Blog</a>
+            <a href="#">Buy this theme</a>
+            <div id="sideimg">
+                <img src="./up/search.png" >
+                <img src="./up/tick.png" >
+            </div>
+            <h1>Text Widget</h1>
+            <span>hellow from my website u can find different themes also u can choose want u want from them</span>
+            <h2>Flicker</h2>
+            <div class="sideimg2">
+                <img src="./img/5.jpg" >
+                <img src="./img/p4.jpg" >
+            </div>
+            <div class="sideimg2">
+                <img src="./img/3.jpg" >
+                <img src="./img/4.jpg" >
+            </div>
+           
+
+        </section>
+        
+
+    </div>
+</body>
+</html>

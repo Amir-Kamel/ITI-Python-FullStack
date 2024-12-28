@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: lightgray;
+        }
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 50px;
+        }
+        .section {
+            border: 1px solid black;
+            padding: 20px;
+            width: 100%;
+        }
+        li {
+            padding: 10px;
+            border: 1px solid black;
+            margin: 5px 0;
+            cursor: pointer;
+            text-align: center;
+        } 
+        .selected {
+            background-color:cornflowerblue;
+            box-shadow: 0px 0px 20px black inset;   
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 20px;
+        }
+
+        button{
+            width: 70px;
+            height: 50px;
+            background-color:darksalmon;
+            margin: 30px;
+        }
+
+        button:hover{
+            background-color:burlywood;
+            box-shadow: 0px 0px 10px black inset;   
+        }
+        input[type="text"]{
+            width: 200px;
+            height: 50px;
+            margin: 30px;
+            background-color:darkkhaki;
+            padding: 10px;
+        }
+        input[type="text"]:hover{
+            background-color: lightblue;
+            box-shadow: 0px 0px 10px black inset;
+        }
+
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('#addbutt').click(function () {
+                let userinput = $('#userinput').val();
+                if (isNaN(userinput) && userinput != '') {
+                    $('#right').append(`<li>${userinput} </li>`);
+                    $('#userinput').val('');
+                }
+            });
+
+            $(document).on('click', '#right li, #left li', function () {
+                $('li').removeClass('selected');
+                $(this).addClass('selected');
+            });
+
+            $('#moveleft').click(function () {
+                    $('#left').append($('.selected'));
+                    $('.selected').removeClass('selected')
+            });
+
+            $('#moveright').click(function () {
+                $('#right').append($('.selected'));
+                $('.selected').removeClass('selected')
+            });
+            
+        });//endload
+    </script>
+
+</head>
+<body>
+    <input type="text" id="userinput" placeholder="enter text">
+
+    <button id="addbutt">add</button>
+
+    <div class="container">
+
+        <div class="section" >
+            <ul id="left">
+            </ul>
+        </div>
+        <div class="section">
+            <ul id="right">
+            </ul>
+        </div>
+    </div>
+    <div class="buttons">
+        <button id="moveleft"> < </button>
+        <button id="moveright"> > </button>
+    </div>
+
+</body>
+</html>

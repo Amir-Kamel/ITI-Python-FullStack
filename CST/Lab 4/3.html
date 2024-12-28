@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        img{
+            height: 300px;
+            width: 250;
+            border:10px solid;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <script>
+        var name= prompt("please enter the name of the image");
+        var color= prompt("Also enter the color of the font and the border image");
+
+        document.write("<h1 style='color:"+color+"'>this ur image<br/></h1>");
+        document.write("<img src='"+name+"'alt='just an image' style='border-color:"+color+"'>");
+
+    </script>
+    
+</body>
+</html>

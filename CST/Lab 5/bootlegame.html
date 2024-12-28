@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr=["ahmed" ,"ali","moustafa","ibraheem","alaa","hamada"];
+        var ran=(Math.floor(Math.random()*(arr.length-1)));
+       
+        function randomNumber() {
+
+            return Math.floor(Math.random()*(arr.length-1));
+        }
+
+        do{
+
+            var x=randomNumber();
+            var y=randomNumber();
+
+
+        }while(x==y)
+
+        document.write(""+arr[x]+"<br/>");
+        document.write(arr[y]);
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

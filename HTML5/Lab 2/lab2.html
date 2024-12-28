@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+            transition: all 2s ease-in-out;
+        }
+        div{
+            margin: 30px auto;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 700px;
+            padding: 10px;
+            align-items: center;
+            border:2px solid black;
+            box-shadow: 0px 0px 100px orange inset;
+            border-radius: 20px;
+        }
+
+        #up, #down{
+            display: flex;
+            width:600px;
+            border:2px solid black;
+            justify-content: center;
+            margin:10px 30px;
+            border-radius: 20px;
+        }
+
+        #down{
+            height: 120px;
+            display: flex;
+            justify-content: center;
+        }
+
+        img{
+            width:100px;
+            height:100px;
+            margin:10px;
+            border: 2px solid cyan;
+    
+        }
+        img:hover{
+            transform: scale(1.5) rotate(360deg);
+        }
+
+    </style>
+    <script>
+        window.addEventListener('load',function(){
+            up = document.getElementById('up');
+            down = document.getElementById('down');
+            allimg = document.images;
+            var count=allimg.length;
+            down.addEventListener('drop',(e)=>{
+                e.preventDefault();
+                down.innerHTML+=e.dataTransfer.getData("myimg");
+            });
+
+            down.addEventListener('dragenter',(e)=>{
+                e.preventDefault();
+            });
+
+            down.addEventListener('dragover',(e)=>{
+                e.preventDefault();
+            });
+
+            up.addEventListener('dragleave',(e)=>{
+                e.preventDefault();
+            });
+
+
+            for(let i = 0 ; i < allimg.length ; i++)
+        {
+            allimg[i].addEventListener('dragstart',(e)=>{
+                e.dataTransfer.setData("myimg",e.target.outerHTML);
+            });
+
+            allimg[i].addEventListener('dragend',(e)=>{
+                e.preventDefault(); 
+                e.target.style.display="none";
+                down.style.boxShadow="0px 0px 100px lightgreen inset";
+                count--;
+                if(count==0){
+                up.style.backgroundColor = "green";
+                up.innerText ="The container is empty";
+            }
+            });
+        }
+        });
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <section id="up">
+            <img src="./UP/1.jpg" >
+            <img src="./UP/2.jpg" >
+            <img src="./UP/3.jpg"/>
+            <img src="./UP/4.jpg"/>
+            <img src="./UP/5.jpg"/>
+    
+        </section>
+
+    <section id="down">
+
+    </section>
+
+</div>
+</body>
+</html>

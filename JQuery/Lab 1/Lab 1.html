@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<style>
+div{
+            width:100px;
+            height:100px;
+            margin: 10px;
+            display: inline-block;
+        }
+
+    div:first-child { 
+    background-color: red; 
+}
+div:nth-child(2) { 
+    background-color: green; 
+}
+div:nth-child(3) { 
+    background-color: yellow; 
+}
+div:nth-child(4) { 
+    background-color: blue; 
+}
+</style>
+<script src="jq-3-7-1.js"></script>
+<script>
+$(document).ready(function () {
+
+      $("div").on("click", function () {
+
+        const color = $(this).css("background-color");
+
+        $("p").html(`That div is <span style="color: ${color};">${color}</span>.`);
+      });
+    });
+</script>
+
+<body>
+   <div></div> 
+   <div></div> 
+   <div></div> 
+   <div></div> 
+   <p ></p>
+</body>
+</html>

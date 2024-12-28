@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+
+</head>
+
+<body>
+   <img src=" "/><span>welcome</span><p></p>
+
+   <script>
+    var str=location.search.slice(1);
+    var arr= str.split("&");
+    var name=arr[0].split("=").slice(1).join("");
+    var gender=arr[2].split("=").slice(1).join("");
+    var colr=arr[3].split("=").slice(1).join("");
+    document.getElementsByTagName("p")[0].innerText=""+name+"";
+    document.getElementsByTagName("p")[0].style.color=colr;
+
+    if(gender=='male')
+{
+    document.getElementsByTagName("img")[0].src="./1.png";
+}
+else{
+    document.getElementsByTagName("img")[0].src="./2.png";
+}
+
+</script>
+</body>
+</html>

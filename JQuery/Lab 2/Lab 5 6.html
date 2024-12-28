@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Accordion - Default functionality</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+
+    <script>
+            $( function() {   
+
+              $("button").click( function() {
+
+        $.ajax({
+
+            url: "https://jsonplaceholder.typicode.com/posts",
+
+            success: function(data) {
+
+               data.forEach(function(data) {
+
+                   $("#accordion").append(`<h3>${data.title}</h3><p>${data.body}</p>`);
+                  
+               });
+
+               $("#accordion").accordion(); 
+               
+            },
+
+          fail: function() {
+
+            console.log("error");
+
+           }
+
+        });//endajax
+
+    });//endbutton
+
+  });//endload
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <button>load json</button>
+
+  <div id="accordion">
+
+    </div>
+
+  </body></html>

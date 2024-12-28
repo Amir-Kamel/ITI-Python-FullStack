@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITI Layout</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+
+
+*{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+        ul{
+            display:flex;
+            min-height:10vh;
+            align-items: center;
+            justify-content:space-evenly;
+        }
+        ul>li{
+            list-style:none;
+        }
+        ul>li>a{
+            text-decoration:none;
+            color:rgb(186, 7, 7);
+            font-weight:bold;
+        }
+        ul>li>a:hover{
+            color:rgb(99, 95, 95);
+        }
+        .intro{
+            width:99vw;
+            height:90vh;
+            background-image:url(./img/laptop_top.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items: center;
+            color:white;
+        }
+        .intro>h4{
+            font-size:3rem;
+            margin-bottom:1.2rem;
+        }
+        .intro>button{
+            padding:1.2rem 2rem;
+            outline:none;
+            border:none;
+            border-radius:1rem;;
+            background-image:linear-gradient(to left , transparent , rgb(162, 162, 228));
+        }
+        .intro>button:hover{
+            background-image:linear-gradient(to right , transparent , rgb(162, 162, 228));
+        }
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+.mainwrapper {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  margin-left: 50px;
+}
+
+.mainwrapper h2 {
+  color: #b33f3f;
+}
+
+.mainwrapper p {
+  margin: 0.5rem 0 2rem;
+  font-size: 1.1rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.map img {
+  width: 200px;
+  height: auto;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  text-align: left;
+}
+
+.list div {
+  background-color: white;
+  border: 1px solid beige;
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px black;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: #333;
+  color: white;
+  margin-top: 49px;
+  padding: 1rem 1rem;
+  flex-wrap: wrap;
+}
+
+.footer .contact,
+.footer .social {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer .icons a {
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  
+}
+
+.footer .icons a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+.box {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.m {
+  background-color: orangered; 
+}
+
+.b {
+  background-color: blue; 
+}
+
+</style>
+<script>
+       window.addEventListener('load',function(){
+         main=document.getElementById("activemain");
+     branch=document.getElementById("activebranch");
+
+    main.addEventListener("mouseover",function(){
+      document.querySelector(".list div:nth-child(1)").style.color="orangered";
+    });
+
+    main.addEventListener("mouseleave", function() {
+    document.querySelector(".list div:nth-child(1)").style.color = "";
+  });
+
+    branch.addEventListener("mouseover",function(){
+     document.querySelectorAll(".list div:nth-child(n+2)").forEach(function(e){
+     e.style.color = 'blue'; 
+});
+    });
+
+    branch.addEventListener("mouseleave",function(){
+     document.querySelectorAll(".list div:nth-child(n+2)").forEach(function(e){
+     e.style.color = ''; 
+});
+
+});
+
+  });
+
+</script>
+<body>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Gallery</a></li>
+    </ul>
+    <section class="intro">
+        <h4>ITI Tanta</h4>
+        <button>Register</button>
+    </section>
+
+  <section class="mainwrapper">
+    <h2>ITI Locations</h2>
+    <p>ITI Main Locations all over the country</p>
+    <div class="container">
+      <div class="map">
+        <img src="./img/map.png">
+      </div>
+      <div class="list">
+        <div>ITI - Smart Village</div>
+        <div>ITI - Alexandria</div>
+        <div>ITI - Assuit</div>
+        <div>ITI - Aswan</div>
+        <div>ITI - Ismailia</div>
+        <div>ITI - Mansoura</div>
+        <div>ITI - Menofia</div>
+        <div>ITI - Minya</div>
+        <span id="activemain" onclick="activemain()"><span class="m box"></span> Main Branch</span>
+        <span id="activebranch" onclick="activebracnch()"><span class="b box"></span>Branch</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="contact">
+      <h3>Contact Us</h3>
+      <p>28 Km by Cairo / Alexandria Desert Road, 6 October</p>
+      <p>+202 353-55565</p>
+      <p>ITIinfo@iti.gov.eg</p>
+    </div>
+    <div class="social">
+      <h3>Follow Us</h3>
+      <div class="icons">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
